@@ -1,0 +1,29 @@
+import random
+from math import prod
+
+A = [random.randint(-10, 10) for _ in range(10)]
+
+neg_sum = sum(x for x in A if x < 0)
+even_sum = sum(x for x in A if x % 2 == 0)
+odd_sum = sum(x for x in A if x % 2 != 0)
+prod_3 = prod(A[i] for i in range(len(A)) if i % 3 == 0)
+
+min_i, max_i = A.index(min(A)),
+A.index(max(A))
+prod_between = prod(A[min_i + 1:max_i]) if
+min_i < max_i else prod(A[max_i + 1:min_i])
+
+pos = [i for i, x in enumerate(A) if x > 0]
+sum_between = sum(A[pos[0] + 1:pos[-1]]) if 
+len(pos) > 1 else 0
+
+print(A)
+print(f"Сума від'ємних чисел: (neg_sum}")
+print(f"Сума парних чисел: {even_sum}")
+print(f"Сума непарних чисел: {odd_sum}")
+print(f"Добуток елементів з індексами, що
+діляться на 3: {prod_3}")
+print(f"Добуток елементів між найменшим і
+найбільшим: {prod_between}")
+print(f"Сума елементів між першим і
+останнім додатними: {sum_between}")
